@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * This file is mostly copied from https://github.com/vimeo/psalm/blob/b40403d7b001ec537bf747b5d8cef76941642b11/src/Psalm/Internal/Stubs/CoreGenericFunctions.phpstub
+ * which is under an MIT license (https://github.com/vimeo/psalm/blob/194f02507d8e88269e442c4ce58b89fef118ff00/LICENSE) Copyright (c) 2016 Vimeo
+ * (a copy of the license is available in the vimeo-LICENSE file of this repository, just in case)
+ */
+
+namespace Safe;
+
+use Safe\Exceptions\ArrayException;
+use Safe\Exceptions\FilesystemException;
+
+/**
+ * @psalm-template TKey as array-key
+ * @psalm-template TValue
+ *
+ * @param array<mixed, TKey> $arr
+ * @param array<mixed, TValue> $arr2
+ *
+ * @return array<TKey, TValue>
+ * @psalm-ignore-falsable-return
+ * @psalm-pure
+ * @throws ArrayException
+ */
+function array_combine(array $arr, array $arr2)
+{
+}
+
+/**
+ * @psalm-template TKey as array-key
+ * @psalm-template TValue
+ *
+ * @param array<TKey, TValue> $arr
+ *
+ * @return array<TValue, TKey>
+ * @psalm-pure
+ * @throws ArrayException
+ */
+function array_flip(array $arr)
+{
+}
+
+/**
+ * @psalm-template T
+ *
+ * @param T[] $arr
+ * @param-out list<T> $arr
+ * @throws ArrayException
+ */
+function shuffle(array &$arr): bool
+{
+}
+
+/**
+ * @psalm-template T
+ *
+ * @param T[] $arr
+ * @param-out list<T> $arr
+ * @throws ArrayException
+ */
+function sort(array &$arr, int $sort_flags = SORT_REGULAR): bool
+{
+}
+
+/**
+ * @psalm-template T
+ *
+ * @param T[] $arr
+ * @param-out list<T> $arr
+ * @throws ArrayException
+ */
+function rsort(array &$arr, int $sort_flags = SORT_REGULAR): bool
+{
+}
+
+/**
+ * @psalm-template T
+ *
+ * @param T[] $arr
+ * @param callable(T,T):int $callback
+ * @param-out list<T> $arr
+ * @throws ArrayException
+ */
+function usort(array &$arr, callable $callback): bool
+{
+}
+
+/**
+ * @psalm-template TKey
+ * @psalm-template T
+ *
+ * @param array<TKey,T> $arr
+ * @param callable(T,T):int $callback
+ * @param-out array<TKey,T> $arr
+ * @throws ArrayException
+ */
+function uasort(array &$arr, callable $callback): bool
+{
+}
+
+/**
+ * @psalm-template TKey
+ * @psalm-template T
+ *
+ * @param array<TKey,T> $arr
+ * @param callable(TKey,TKey):int $callback
+ * @param-out array<TKey,T> $arr
+ * @throws ArrayException
+ */
+function uksort(array &$arr, callable $callback): bool
+{
+}
+
+/**
+ * @param resource $handle
+ * @param-out closed-resource $handle
+ * @throws FilesystemException
+ */
+function fclose(&$handle) : void
+{
+}

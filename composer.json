@@ -1,0 +1,26 @@
+{
+    "name": "hectorj/safe-php-psalm-plugin",
+    "description": "vimeo/psalm plugin for thecodingmachine/safe",
+    "type": "psalm-plugin",
+    "require": {
+        "php": "^7.4",
+        "vimeo/psalm": "^3.10",
+        "thecodingmachine/safe": "^1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hectorj"
+        }
+    ],
+    "extra": {
+        "psalm": {
+            "pluginClass": "HectorJ\\SafePHPPsalmPlugin\\Plugin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "HectorJ\\SafePHPPsalmPlugin\\": ["./src"]
+        }
+    }
+}
