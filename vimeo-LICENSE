@@ -1,3 +1,5 @@
+Reproduced from https://github.com/vimeo/psalm/blob/b40403d7b001ec537bf747b5d8cef76941642b11/src/Psalm/Internal/Stubs/CoreGenericFunctions.phpstub as most of this work is derived from Vimeo's code.
+
 MIT License
 
 Copyright (c) 2016 Vimeo
