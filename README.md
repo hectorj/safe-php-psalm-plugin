@@ -4,6 +4,8 @@ This is a [vimeo/psalm](https://github.com/vimeo/psalm) plugin for [thecodingmac
 
 It applies some Psalm's core functions stubs to their safe versions.
 
+Not all functions `thecodingmachine/safe` are supported yet. If you have a specific need, don't hesitate to open an issue or a PR.
+
 ## Installation
 
 ```
