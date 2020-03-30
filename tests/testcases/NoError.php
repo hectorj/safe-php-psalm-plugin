@@ -75,8 +75,25 @@ function uksort() {
 /**
  * @psalm-return closed-resource
  */
-function fclose() {
+function fclose()
+{
     $handle = \Safe\fopen('whatever', 'r');
     \Safe\fclose($handle);
     return $handle;
+}
+
+/**
+ * @psalm-return array
+ */
+function preg_replace_array()
+{
+    return \Safe\preg_replace('#a#', 'b', ['a', 'b']);
+}
+
+/**
+ * @psalm-return string
+ */
+function preg_replace_string()
+{
+    return \Safe\preg_replace('#a#', 'b', 'aba');
 }
