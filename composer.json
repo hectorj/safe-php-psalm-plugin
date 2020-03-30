@@ -22,5 +22,13 @@
         "psr-4": {
             "HectorJ\\SafePHPPsalmPlugin\\": ["./src"]
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HectorJ\\SafePHPPsalmPlugin\\Tests\\": ["./tests"]
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
     }
 }
