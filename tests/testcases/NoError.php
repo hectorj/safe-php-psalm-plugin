@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace HectorJ\SafePHPPsalmPlugin\Tests\testcases;
 
+use Exception;
+
 /**
  * @psalm-return array<string, int>
  */
@@ -96,4 +98,18 @@ function preg_replace_array()
 function preg_replace_string()
 {
     return \Safe\preg_replace('#a#', 'b', 'aba');
+}
+
+/**
+ * @psalm-return string
+ */
+function preg_match_matches()
+{
+    $result = \Safe\preg_match('#(a)#', 'a', $matches);
+
+    if($result !== 1) {
+        throw new Exception();
+    }
+
+    return $matches[1];
 }
