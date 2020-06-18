@@ -120,3 +120,10 @@ function uksort(array &$arr, callable $callback): bool
 function fclose(&$handle) : void
 {
 }
+
+/**
+ * @param-out list<string> $matches
+ */
+function preg_match(string $pattern, string $subject, array &$matches = null, int $flags = 0, int $offset = 0): int
+{
+}
