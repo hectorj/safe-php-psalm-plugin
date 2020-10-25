@@ -12,13 +12,13 @@ final class PluginTest extends TestCase
         $returnCode = -1;
         $output = [];
         exec('vendor/bin/psalm -c psalm-test.xml --no-progress --no-cache --output-format=json tests/testcases/NoError.php', $output, $returnCode);
-        $outputString = self::indentJson(join("\n", $output));
+        $outputString = self::indentJson(implode("\n", $output));
         self::assertEmpty($outputString, $outputString);
         self::assertEquals(0, $returnCode);
     }
 
     public static function indentJson(string $json): string {
-        if (empty($json)) {
+        if ($json === '[]') {
             return '';
         }
         return \Safe\json_encode(\Safe\json_decode($json), JSON_PRETTY_PRINT);
