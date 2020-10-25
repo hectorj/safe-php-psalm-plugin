@@ -8,10 +8,10 @@ use SimpleXMLElement;
 
 final class Plugin implements PluginEntryPointInterface
 {
-    public function __invoke(RegistrationInterface $api, SimpleXMLElement $config = null): void
+    public function __invoke(RegistrationInterface $registration, ?SimpleXMLElement $config = null): void
     {
-        $api->addStubFile(__DIR__ . '/stubs/CoreGenericFunctions.phpstub');
+        $registration->addStubFile(__DIR__ . '/stubs/CoreGenericFunctions.phpstub');
         class_exists(StrReplaceReturnTypeProvider::class, true); // force auto-loading, as Psalm requires plugin classes to already be loaded
-        $api->registerHooksFromClass(StrReplaceReturnTypeProvider::class);
+        $registration->registerHooksFromClass(StrReplaceReturnTypeProvider::class);
     }
 }

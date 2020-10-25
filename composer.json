@@ -5,7 +5,7 @@
     "require": {
         "php": "^7.4",
         "ext-simplexml": "*",
-        "vimeo/psalm": "^3.10",
+        "vimeo/psalm": "^4.0",
         "thecodingmachine/safe": "^1.1"
     },
     "license": "MIT",
