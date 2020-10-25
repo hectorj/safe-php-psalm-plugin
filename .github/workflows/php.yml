@@ -1,24 +1,46 @@
 name: PHP Composer
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
+  push:
+    branches:
+      - "master"
+  schedule:
+    - cron: "42 3 * * *"
 
 jobs:
-  build:
+  phpunit:
+    name: "PHPUnit"
+    runs-on: "ubuntu-20.04"
 
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version:
+          - "7.4"
+          - "8.0"
+        dependencies:
+          - "highest"
+        include:
+          - dependencies: "lowest"
+            php-version: "7.4"
 
     steps:
-    - uses: actions/checkout@v2
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+        with:
+          fetch-depth: 2
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: "${{ matrix.php-version }}"
+          coverage: "none"
+          ini-values: "zend.assertions=1"
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
+      - name: "Install dependencies with Composer"
+        uses: "ramsey/composer-install@v1"
+        with:
+          dependency-versions: "${{ matrix.dependencies }}"
 
-    - name: Tests
-      run: vendor/bin/phpunit tests
+      - name: "Run PHPUnit"
+        run: "vendor/bin/phpunit tests"
