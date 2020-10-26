@@ -82,13 +82,120 @@ function fclose()
     return $handle;
 }
 
-function preg_match_all_test(): void
+/**
+ * @psalm-pure
+ */
+function preg_match_all_no_flag(): array
 {
     if (\Safe\preg_match_all('#a#', 'a', $matches) === 0) {
-        return;
+        return [];
     }
 
-    count($matches);
+    return $matches;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-return array<list<string>>
+ */
+function preg_match_all_flag1(): array
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches, PREG_PATTERN_ORDER) === 0) {
+        return $matches;
+    }
+
+    return $matches;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-return list<array<string>>
+ */
+function preg_match_all_flag2(): array
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches, PREG_SET_ORDER) === 0) {
+        return $matches;
+    }
+
+    return $matches;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-return array<list<array{string, int}>>
+ */
+function preg_match_all_flag257(): array
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches, PREG_OFFSET_CAPTURE|PREG_PATTERN_ORDER) === 0) {
+        return $matches;
+    }
+
+    return $matches;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-return list<array<array{string, int}>>
+ */
+function preg_match_all_flag258(): array
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches, PREG_OFFSET_CAPTURE|PREG_SET_ORDER) === 0) {
+        return $matches;
+    }
+
+    return $matches;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-return array<list<?string>>
+ */
+function preg_match_all_flag512(): array
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches, PREG_UNMATCHED_AS_NULL) === 0) {
+        return $matches;
+    }
+
+    return $matches;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-return array<list<?string>>
+ */
+function preg_match_all_flag513(): array
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches, PREG_UNMATCHED_AS_NULL|PREG_PATTERN_ORDER) === 0) {
+        return $matches;
+    }
+
+    return $matches;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-return list<array<?string>>
+ */
+function preg_match_all_flag514(): array
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches, PREG_UNMATCHED_AS_NULL|PREG_SET_ORDER) === 0) {
+        return $matches;
+    }
+
+    return $matches;
+}
+
+/**
+ * @psalm-pure
+ * @psalm-return list<array<array{?string, int}>>
+ */
+function preg_match_all_flag770(): array
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches, PREG_UNMATCHED_AS_NULL|PREG_OFFSET_CAPTURE|PREG_SET_ORDER) === 0) {
+        return $matches;
+    }
+
+    return $matches;
 }
 
 /**
