@@ -82,6 +82,15 @@ function fclose()
     return $handle;
 }
 
+function preg_match_all_test(): void
+{
+    if (\Safe\preg_match_all('#a#', 'a', $matches) === 0) {
+        return;
+    }
+
+    count($matches);
+}
+
 /**
  * @psalm-return array
  */
