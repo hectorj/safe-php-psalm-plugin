@@ -45,9 +45,8 @@ function array_flip(array $arr)
 
 /**
  * @psalm-pure
- * @template TFlags as int
- *
- * @param TFlags $flags
+ * @psalm-template TFlags as int
+ * @psalm-param TFlags $flags
  * @param-out (
  *          TFlags is 1
  *          ? array<list<string>>
