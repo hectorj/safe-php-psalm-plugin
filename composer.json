@@ -3,7 +3,7 @@
     "description": "vimeo/psalm plugin for thecodingmachine/safe",
     "type": "psalm-plugin",
     "require": {
-        "php": "^7.4",
+        "php": "^7.4 || ^8.0",
         "ext-simplexml": "*",
         "vimeo/psalm": "^4.0",
         "thecodingmachine/safe": "^1.1"
