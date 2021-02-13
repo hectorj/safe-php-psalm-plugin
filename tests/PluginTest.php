@@ -19,12 +19,12 @@ final class PluginTest extends TestCase
 
     public function test_error(): void {
         chdir(__DIR__.'/../');
-        $returnCode = -1;
+        $returnCode = 0;
         $output = [];
         exec('vendor/bin/psalm -c psalm-test.xml --no-progress --no-cache --output-format=json tests/testcases/Error.php', $output, $returnCode);
         $outputString = self::indentJson(implode("\n", $output));
         self::assertNotEmpty($outputString, $outputString);
-        self::assertSame(1, $returnCode);
+        self::assertNotEquals(0, $returnCode, "Return code should indicate a failure. Output: $outputString");
     }
 
     public static function indentJson(string $json): string {
