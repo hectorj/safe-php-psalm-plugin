@@ -75,6 +75,15 @@ function preg_match_all(string $pattern, string $subject, array &$matches = null
 }
 
 /**
+ * @psalm-pure
+ *
+ * @param string|int|float $args
+ *
+ * @psalm-flow ($format, $args) -> return
+ */
+function sprintf(string $format, ...$args) : string {}
+
+/**
  * @psalm-template T
  *
  * @param T[] $arr
