@@ -6,7 +6,7 @@
         "php": "^7.4 || ^8.0",
         "ext-simplexml": "*",
         "vimeo/psalm": "^4.0",
-        "thecodingmachine/safe": "^1.1"
+        "thecodingmachine/safe": "^1.1|^2.1"
     },
     "license": "MIT",
     "authors": [
